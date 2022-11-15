@@ -1,3 +1,20 @@
 {
+    "Email":"Email",
+    "Password":"Password",
+    "Sign in":"Sign in",
+    "My Tasks":"My Tasks",
+    "Daily Tasks":"Daily Tasks",
+    "Daily Stock":"Daily Stock",
+    "Scan Code":"Scan Code",
+    "Search Car":"Search Car",
+    "To Be Prepared":"To Be Prepared",
+    "To Be Transferred":"To Be Transferred",
+    "Log Out":"Log Out",
+    "Home Page":"Home Page",
+    "Car Details":"Car Details",
+    "All Cars":"All Cars",
+    "Broken cars":"Broken cars",
+    "Fixed Cars":"Fixed Cars"
+    
     
 }

@@ -29,6 +29,9 @@ class SQL {
   final String userEmailColumnName = 'Email';
   final String userPasswordColumnName = 'Password';
   final String userRoleColumnName = 'User Role';
+  final String carModelColumnName = 'Model';
+  final String carToBePreparedColumnName = 'To Be Prepared';
+  final String carToBeTransferredColumnName = 'To Be Transferred';
 
   SQL._();
   static SQL sql = SQL._();
@@ -43,7 +46,7 @@ class SQL {
       CREATE TABLE $carTableName (
         $carIdColumnName INTEGER primary key autoincrement,
         $carNameColumnName varchar(50),
-        $carStatusColumnName INTEGER,
+        $carStatusColumnName varchar(50),
         $carBrandColumnName varchar(50),
         $carLicencePlateColumnName varchar(50),
         $carVinColumnName varchar(50),
@@ -54,7 +57,10 @@ class SQL {
         $carTyresColumnName varchar(50),
         $carParkingBoxColumnName varchar(50),
         $carDamagesColumnName varchar(50),
-        $carLocationColumnName varchar(50)
+        $carLocationColumnName varchar(50),
+        $carModelColumnName varchar(50),
+        $carToBePreparedColumnName INTEGER,
+        $carToBeTransferredColumnName INTEGER
       )
 
 ''');
@@ -73,7 +79,7 @@ class SQL {
       CREATE TABLE $carTableName (
         $carIdColumnName INTEGER primary key autoincrement,
         $carNameColumnName varchar(50),
-        $carStatusColumnName INTEGER,
+        $carStatusColumnName varchar(50),
         $carBrandColumnName varchar(50),
         $carLicencePlateColumnName varchar(50),
         $carVinColumnName varchar(50),
@@ -84,7 +90,10 @@ class SQL {
         $carTyresColumnName varchar(50),
         $carParkingBoxColumnName varchar(50),
         $carDamagesColumnName varchar(50),
-        $carLocationColumnName varchar(50)
+        $carLocationColumnName varchar(50),
+        $carModelColumnName varchar(50),
+        $carToBePreparedColumnName INTEGER,
+        $carToBeTransferredColumnName INTEGER
       )
 
 ''');
@@ -108,7 +117,17 @@ class SQL {
   addCar(Car c) {
     dataBase.insert(carTableName, c.toMap());
   }
-  
 
-
+  updateCar(Car c) {
+    dataBase.update(
+        carTableName,
+        {
+          carCarInColumnName: c.carIn,
+          carToBePreparedColumnName:c.toBePrepared,
+          carToBeTransferredColumnName:c.toBeTransferred,
+          carDamagesColumnName:c.damages
+        },
+        where: 'id=?',
+        whereArgs: [c.id]);
+  }
 }
