@@ -14,5 +14,18 @@
     "Car Details":"تفاصيل السيارة",
     "All Cars":"كل السيارات",
     "Broken cars":"سيارات معطلة",
-    "Fixed Cars":"سيارات جاهزة"
+    "Fixed Cars":"سيارات جاهزة",
+    "Car Name":"اسم السيارة",
+    "Car Status":"مؤجرة/غير مؤجرة",
+    "Brand":"ماركة",
+    "Model":"موديل",
+    "Licence":"رقم الترخيص",
+    "VIN":"VIN",
+    "Category":"الفئة",
+    "Branch":"الفرع",
+    "Fuel Status":"الوقود",
+    "Tyres":"الاطارات",
+    "Barking Box":"الكراج",
+    "Location":"الموقع",
+    "Add Car":"أضف"
 }

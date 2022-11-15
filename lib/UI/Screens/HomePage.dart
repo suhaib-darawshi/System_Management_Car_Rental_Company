@@ -9,19 +9,22 @@ import 'package:rental_management_app/UI/Widgets/BrokenCarList.dart';
 import 'package:rental_management_app/UI/Widgets/FixedCars.dart';
 import 'package:rental_management_app/providers/provider.dart';
 
+import 'AddCarPage.dart';
+
 class HomePage extends StatefulWidget {
   @override
   State<HomePage> createState() => _HomePageState();
 }
 
-class _HomePageState extends State<HomePage> with TickerProviderStateMixin{
+class _HomePageState extends State<HomePage> with TickerProviderStateMixin {
   late TabController tabController;
-  
+
   @override
-  void initState(){
+  void initState() {
     super.initState();
     tabController = new TabController(length: 3, vsync: this);
   }
+
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -119,20 +122,29 @@ class _HomePageState extends State<HomePage> with TickerProviderStateMixin{
       ),
       appBar: AppBar(
         backgroundColor: Colors.white,
-        title: Center(child: Text('Home Page'.tr()),),
+        title: Center(
+          child: Text('Home Page'.tr()),
+        ),
         iconTheme: IconThemeData(color: Colors.black),
-        bottom: TabBar(controller: tabController,tabs: [
+        bottom: TabBar(controller: tabController, tabs: [
           Text('All Cars'.tr()),
           Text('Broken cars'.tr()),
           Text('Fixed Cars'.tr())
         ]),
       ),
-      body: TabBarView(controller: tabController,
-      children: [
-        AllCars(),
-        BrokenCars(),
-        FixedCars()
-      ],),
+      body: TabBarView(
+        controller: tabController,
+        children: [AllCars(), BrokenCars(), FixedCars()],
+      ),
+      floatingActionButton: FloatingActionButton(
+        onPressed: () {
+          Navigator.of(context).push(MaterialPageRoute(builder: (context) {
+            return AddCarPage();
+          }));
+        },
+        tooltip: 'Increment',
+        child: const Icon(Icons.add),
+      ),
     );
   }
 }

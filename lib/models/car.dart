@@ -1,15 +1,15 @@
 class Car {
   late int id;
-  late String carName;
+  late String carName;//
   late String status;
-  late String brand;
-  late String model;
-  late String licence;
-  late String VIN;
-  late String category;
-  late String branch;
-  late int kilometers;
-  late String fuelStatus;
+  late String brand;//
+  late String model;//
+  late String licence;//
+  late String VIN;//
+  late String category;//
+  late String branch;//
+  late int kilometers;//
+  late String fuelStatus;//
   late String tyres;
   late String barkingBox;
   late String damages;
@@ -34,7 +34,7 @@ final String carNameColumnName = 'Car Name';
   final String carLocationColumnName = 'Car Location';
 */
   Car.fromMap(Map<String, dynamic> map) {
-    this.carName = map['Car Name'];
+    this.carName = map['Car_Name'];
     this.status = map['Status'];
     this.brand = map['Brand'];
     this.licence = map['Licence'];
@@ -42,19 +42,19 @@ final String carNameColumnName = 'Car Name';
     this.category = map['Category'];
     this.branch = map['Branch'];
     this.kilometers = map['Kilometers'];
-    this.fuelStatus = map['Fuel Status'];
+    this.fuelStatus = map['Fuel_Status'];
     this.tyres = map['Tyres'];
-    this.barkingBox = map['Barking Box'];
+    this.barkingBox = map['Barking_Box'];
     this.damages = map['Damages'];
-    this.carIn = map['Car In'];
-    this.carLocation = map['Car Location'];
+    this.carIn = map['Car_In'];
+    this.carLocation = map['Car_Location'];
     this.model = map['Model'];
-    this.toBePrepared = map['To Be Prepared']??0;
-    this.toBeTransferred = map['To Be Transferred']??0;
+    this.toBePrepared = map['To_Be_Prepared']??0;
+    this.toBeTransferred = map['To_Be_Transferred']??0;
   }
   Map<String, dynamic> toMap() {
     return {
-      'Car Name': this.carName,
+      'Car_Name': this.carName,
       'Status': this.status,
       'Brand': this.brand,
       'Model': this.model,
@@ -63,14 +63,14 @@ final String carNameColumnName = 'Car Name';
       'Category': this.category,
       'Branch': this.branch,
       'Kilometers': this.kilometers,
-      'Fuel Status': this.fuelStatus,
+      'Fuel_Status': this.fuelStatus,
       'Tyres': this.tyres,
-      'Barking Box': this.barkingBox,
+      'Barking_Box': this.barkingBox,
       'Damages': this.damages,
-      'Car In': this.carIn,
-      'Car Location': this.carLocation,
-      'To Be Prepared': this.toBePrepared,
-      'To Be Transferred':this.toBeTransferred
+      'Car_In': this.carIn,
+      'Car_Location': this.carLocation,
+      'To_Be_Prepared': this.toBePrepared,
+      'To_Be_Transferred':this.toBeTransferred
     };
   }
 }

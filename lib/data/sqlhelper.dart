@@ -9,7 +9,7 @@ import 'package:sqflite/sqflite.dart';
 class SQL {
   final String carTableName = 'Cars';
   final String carIdColumnName = 'id';
-  final String carNameColumnName = 'Car Name';
+  final String carNameColumnName = 'Car_Name';
   final String carStatusColumnName = 'Status';
   final String carBrandColumnName = 'Brand';
   final String carLicencePlateColumnName = 'Licence';
@@ -17,21 +17,21 @@ class SQL {
   final String carCategoryColumnName = 'Category';
   final String carBranchColumnName = 'Branch';
   final String carKilometersColumnName = 'Kilometers';
-  final String carFuelStatusColumnName = 'Fuel Status';
+  final String carFuelStatusColumnName = 'Fuel_Status';
   final String carTyresColumnName = 'Tyres';
-  final String carParkingBoxColumnName = 'Barking Box';
+  final String carParkingBoxColumnName = 'Barking_Box';
   final String carDamagesColumnName = 'Damages';
-  final String carCarInColumnName = 'Car In';
-  final String carLocationColumnName = 'Car Location';
+  final String carCarInColumnName = 'Car_In';
+  final String carLocationColumnName = 'Car_Location';
   final String usersTableName = 'Users';
-  final String usersIdColumnName = 'id';
+  final String usersIdColumnName = 'User_id';
   final String userUsernameColumnName = 'Username';
   final String userEmailColumnName = 'Email';
   final String userPasswordColumnName = 'Password';
-  final String userRoleColumnName = 'User Role';
+  final String userRoleColumnName = 'User_Role';
   final String carModelColumnName = 'Model';
-  final String carToBePreparedColumnName = 'To Be Prepared';
-  final String carToBeTransferredColumnName = 'To Be Transferred';
+  final String carToBePreparedColumnName = 'To_Be_Prepared';
+  final String carToBeTransferredColumnName = 'To_Be_Transferred';
 
   SQL._();
   static SQL sql = SQL._();
@@ -44,21 +44,22 @@ class SQL {
         await openDatabase(path, version: 1, onCreate: ((db, version) async {
       await db.execute('''
       CREATE TABLE $carTableName (
-        $carIdColumnName INTEGER primary key autoincrement,
-        $carNameColumnName varchar(50),
-        $carStatusColumnName varchar(50),
-        $carBrandColumnName varchar(50),
-        $carLicencePlateColumnName varchar(50),
-        $carVinColumnName varchar(50),
-        $carCategoryColumnName varchar(50),
-        $carBranchColumnName varchar(50),
+        $carIdColumnName INTEGER PRIMARY KEY AUTOINCREMENT,
+        $carNameColumnName TEXT,
+        $carStatusColumnName TEXT,
+        $carBrandColumnName TEXT,
+        $carLicencePlateColumnName TEXT,
+        $carVinColumnName TEXT,
+        $carCategoryColumnName TEXT,
+        $carBranchColumnName TEXT,
         $carKilometersColumnName INTEGER,
-        $carFuelStatusColumnName varchar(50),
-        $carTyresColumnName varchar(50),
-        $carParkingBoxColumnName varchar(50),
-        $carDamagesColumnName varchar(50),
-        $carLocationColumnName varchar(50),
-        $carModelColumnName varchar(50),
+        $carFuelStatusColumnName TEXT,
+        $carTyresColumnName TEXT,
+        $carParkingBoxColumnName TEXT,
+        $carDamagesColumnName TEXT,
+        $carLocationColumnName TEXT,
+        $carModelColumnName TEXT,
+        $carCarInColumnName TEXT,
         $carToBePreparedColumnName INTEGER,
         $carToBeTransferredColumnName INTEGER
       )
@@ -66,37 +67,44 @@ class SQL {
 ''');
       await db.execute('''
     CREATE TABLE $usersTableName (
-        $usersIdColumnName INTEGER primary key autoincrement,
-        $userUsernameColumnName varchar(50),
-        $userEmailColumnName varchar(50),
-        $userPasswordColumnName varchar(50),
-        $userRoleColumnName varchar(50)''');
+        $usersIdColumnName INTEGER PRIMARY KEY AUTOINCREMENT,
+        $userUsernameColumnName TEXT,
+        $userEmailColumnName TEXT,
+        $userPasswordColumnName TEXT,
+        $userRoleColumnName TEXT)''');
       log("database created");
     }), onOpen: (db) {
       log('database opened');
     }, onUpgrade: ((db, oldVersion, newVersion) async {
       await db.execute('''
       CREATE TABLE $carTableName (
-        $carIdColumnName INTEGER primary key autoincrement,
-        $carNameColumnName varchar(50),
-        $carStatusColumnName varchar(50),
-        $carBrandColumnName varchar(50),
-        $carLicencePlateColumnName varchar(50),
-        $carVinColumnName varchar(50),
-        $carCategoryColumnName varchar(50),
-        $carBranchColumnName varchar(50),
+        $carIdColumnName INTEGER PRIMARY KEY AUTOINCREMENT,
+        $carNameColumnName TEXT,
+        $carStatusColumnName TEXT,
+        $carBrandColumnName TEXT,
+        $carLicencePlateColumnName TEXT,
+        $carVinColumnName TEXT,
+        $carCategoryColumnName TEXT,
+        $carBranchColumnName TEXT,
         $carKilometersColumnName INTEGER,
-        $carFuelStatusColumnName varchar(50),
-        $carTyresColumnName varchar(50),
-        $carParkingBoxColumnName varchar(50),
-        $carDamagesColumnName varchar(50),
-        $carLocationColumnName varchar(50),
-        $carModelColumnName varchar(50),
+        $carFuelStatusColumnName TEXT,
+        $carTyresColumnName TEXT,
+        $carParkingBoxColumnName TEXT,
+        $carDamagesColumnName TEXT,
+        $carLocationColumnName TEXT,
+        $carModelColumnName TEXT,
         $carToBePreparedColumnName INTEGER,
         $carToBeTransferredColumnName INTEGER
       )
 
 ''');
+await db.execute('''
+    CREATE TABLE $usersTableName (
+        $usersIdColumnName INTEGER PRIMARY KEY AUTOINCREMENT,
+        $userUsernameColumnName TEXT,
+        $userEmailColumnName TEXT,
+        $userPasswordColumnName TEXT,
+        $userRoleColumnName TEXT)''');
     }));
   }
 

@@ -6,6 +6,7 @@ import 'package:rental_management_app/UI/Screens/ServiceScreens/CarDetails.dart'
 import 'package:rental_management_app/UI/Screens/login_screen.dart';
 import 'package:rental_management_app/UI/Widgets/CarWidget.dart';
 import 'package:rental_management_app/data/dummy.dart';
+import 'package:rental_management_app/data/sqlhelper.dart';
 import 'package:rental_management_app/models/car.dart';
 import 'package:rental_management_app/providers/provider.dart';
 import 'UI/Screens/HomePage.dart';
@@ -14,7 +15,7 @@ import 'UI/Screens/ServiceScreens/DailyTasks.dart';
 void main() async {
   WidgetsFlutterBinding.ensureInitialized();
   await EasyLocalization.ensureInitialized();
-
+  await SQL.sql.initDatabase();
   runApp(App());
 }
 
@@ -40,9 +41,8 @@ class Material extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    
     return ScreenUtilInit(
-      designSize: Size(393,891),
+      designSize: Size(393, 891),
       builder: (context, child) {
         return MaterialApp(
           localizationsDelegates: context.localizationDelegates,
@@ -57,8 +57,6 @@ class Material extends StatelessWidget {
 }
 
 class TestWidgets extends StatelessWidget {
-  
-
   @override
   Widget build(BuildContext context) {
     return Scaffold(

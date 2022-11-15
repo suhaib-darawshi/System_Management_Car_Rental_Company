@@ -14,7 +14,21 @@
     "Car Details":"Car Details",
     "All Cars":"All Cars",
     "Broken cars":"Broken cars",
-    "Fixed Cars":"Fixed Cars"
+    "Fixed Cars":"Fixed Cars",
+    "Car Name":"Car Name",
+    "Car Status":"Car Status",
+    "Brand":"Brand",
+    "Model":"Model",
+    "Licence":"Licence",
+    "VIN":"VIN",
+    "Category":"Category",
+    "Branch":"Branch",
+    "kilometers":"العداد",
+    "Fuel Status":"Fuel Status",
+    "Tyres":"Tyres",
+    "Barking Box":"Barking Box",
+    "Location":"Location",
+    "Add Car":"Add Car"
     
     
 }
