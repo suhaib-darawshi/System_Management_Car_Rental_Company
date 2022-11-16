@@ -3,6 +3,10 @@ import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:provider/provider.dart';
+import 'package:rental_management_app/UI/Screens/HomePage.dart';
+import 'package:rental_management_app/UI/Widgets/AlertDialog.dart';
+import 'package:rental_management_app/data/sqlhelper.dart';
+import 'package:rental_management_app/models/user.dart';
 import 'package:rental_management_app/providers/provider.dart';
 
 class LoginScreen extends StatelessWidget {
@@ -55,7 +59,22 @@ class LoginScreen extends StatelessWidget {
                     ),
                     ElevatedButton(
                         onPressed: () {
-                          bool t = provider.logIn();
+                          int t = provider.logIn();
+                          if(t==1){
+                            Navigator.of(context).push(MaterialPageRoute(builder: ((context) {
+                              return HomePage();
+                            })));
+                          }
+                          else{
+                            showDialog(
+                            context: context,
+                            builder: (context) {
+                              return AlertD();
+                            },
+                          );
+
+                          }
+                          
                         },
                         child: Text("Sign in".tr()))
                   ],

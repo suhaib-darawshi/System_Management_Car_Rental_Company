@@ -21,11 +21,12 @@ class AddCarPage extends StatelessWidget {
       body: Consumer<CarProvider>(
         builder: (context, value, child) {
           return Consumer<CarProvider>(builder: (context, provider, child) {
-            return Column(
-              mainAxisAlignment: MainAxisAlignment.center,
-              crossAxisAlignment: CrossAxisAlignment.center,
-              children: [
-                Row(children: [
+            return SingleChildScrollView(
+              scrollDirection: Axis.vertical,
+              child: Column(
+                mainAxisAlignment: MainAxisAlignment.center,
+                crossAxisAlignment: CrossAxisAlignment.center,
+                children: [
                   Padding(
                     padding: const EdgeInsets.all(8.0),
                     child: Column(
@@ -57,13 +58,6 @@ class AddCarPage extends StatelessWidget {
                               InputDecoration(labelText: "Category".tr()),
                           controller: provider.carCategoryController,
                         ),
-                      ],
-                    ),
-                  ),
-                  Padding(
-                    padding: const EdgeInsets.all(8.0),
-                    child: Column(
-                      children: [
                         TextFormField(
                           decoration: InputDecoration(labelText: "Branch".tr()),
                           controller: provider.carBranchController,
@@ -96,14 +90,14 @@ class AddCarPage extends StatelessWidget {
                         ),
                       ],
                     ),
-                  )
-                ]),
-                ElevatedButton(
-                    onPressed: () {
-                      provider.addCar();
-                    },
-                    child: Text("Add Car".tr()))
-              ],
+                  ),
+                  ElevatedButton(
+                      onPressed: () {
+                        provider.addCar();
+                      },
+                      child: Text("Add Car".tr()))
+                ],
+              ),
             );
           });
         },

@@ -23,12 +23,14 @@
     "VIN":"VIN",
     "Category":"Category",
     "Branch":"Branch",
-    "kilometers":"العداد",
+    "kilometers":"kilometers",
     "Fuel Status":"Fuel Status",
     "Tyres":"Tyres",
     "Barking Box":"Barking Box",
     "Location":"Location",
-    "Add Car":"Add Car"
+    "Add Car":"Add Car",
+    "Wrong Information":"Wrong Information",
+    "Please Try Again":"Please Try Again"
     
     
 }

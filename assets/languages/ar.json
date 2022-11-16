@@ -23,9 +23,13 @@
     "VIN":"VIN",
     "Category":"الفئة",
     "Branch":"الفرع",
+    "kilometers":"العداد",
     "Fuel Status":"الوقود",
     "Tyres":"الاطارات",
     "Barking Box":"الكراج",
     "Location":"الموقع",
-    "Add Car":"أضف"
+    "Add Car":"أضف",
+    "Wrong Information":"البيانات التي قمت بادخالها خاطئة",
+    "Please Try Again":"حاول مرة اخرى"
+    
 }

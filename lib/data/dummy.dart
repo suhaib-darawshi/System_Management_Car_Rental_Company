@@ -1,5 +1,5 @@
 Map<String, dynamic> cardata = {
-  'Car Name': 'carname',
+  'Car_Name': 'carname',
       'Status': 'status',
       'Brand': 'brand',
       'Model':'model',
@@ -8,10 +8,12 @@ Map<String, dynamic> cardata = {
       'Category': 'categore',
       'Branch': 'branch',
       'Kilometers': 254,
-      'Fuel Status': 'fuel',
+      'Fuel_Status': 'fuel',
       'Tyres': 'tyres',
-      'Barking Box': 'barking box',
+      'Barking_Box': 'barking box',
       'Damages': 'no damages',
-      'Car In': 'Car In',
-      'Car Location': 'car location'
+      'Car_In': 'Car In',
+      'Car_Location': 'car location',
+      'To_Be_Prepared': 0,
+      'To_Be_Transferred':0
 };

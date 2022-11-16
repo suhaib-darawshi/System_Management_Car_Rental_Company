@@ -123,13 +123,13 @@ class _HomePageState extends State<HomePage> with TickerProviderStateMixin {
       appBar: AppBar(
         backgroundColor: Colors.white,
         title: Center(
-          child: Text('Home Page'.tr()),
+          child: Text('Home Page'.tr(),style: TextStyle(color: Colors.black),),
         ),
         iconTheme: IconThemeData(color: Colors.black),
         bottom: TabBar(controller: tabController, tabs: [
-          Text('All Cars'.tr()),
-          Text('Broken cars'.tr()),
-          Text('Fixed Cars'.tr())
+          Text('All Cars'.tr(),style: TextStyle(color: Colors.black)),
+          Text('Broken cars'.tr(),style: TextStyle(color: Colors.black)),
+          Text('Fixed Cars'.tr(),style: TextStyle(color: Colors.black))
         ]),
       ),
       body: TabBarView(

@@ -49,7 +49,7 @@ class Material extends StatelessWidget {
           supportedLocales: context.supportedLocales,
           locale: context.locale,
           debugShowCheckedModeBanner: false,
-          home: HomePage(),
+          home: LoginScreen(),
         );
       },
     );

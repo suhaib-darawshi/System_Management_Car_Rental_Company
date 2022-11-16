@@ -98,7 +98,7 @@ class SQL {
       )
 
 ''');
-await db.execute('''
+      await db.execute('''
     CREATE TABLE $usersTableName (
         $usersIdColumnName INTEGER PRIMARY KEY AUTOINCREMENT,
         $userUsernameColumnName TEXT,
@@ -118,8 +118,9 @@ await db.execute('''
     return ob.map((e) => User.fromMap(e)).toList();
   }
 
-  addUser(User u) {
-    dataBase.insert(usersTableName, u.toMap());
+  addUser(User u) async{
+    await dataBase.insert(usersTableName, u.toMap());
+    log('user added');
   }
 
   addCar(Car c) {
@@ -131,9 +132,9 @@ await db.execute('''
         carTableName,
         {
           carCarInColumnName: c.carIn,
-          carToBePreparedColumnName:c.toBePrepared,
-          carToBeTransferredColumnName:c.toBeTransferred,
-          carDamagesColumnName:c.damages
+          carToBePreparedColumnName: c.toBePrepared,
+          carToBeTransferredColumnName: c.toBeTransferred,
+          carDamagesColumnName: c.damages
         },
         where: 'id=?',
         whereArgs: [c.id]);

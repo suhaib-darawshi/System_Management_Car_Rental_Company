@@ -1,3 +1,5 @@
+import 'dart:developer';
+
 import 'package:easy_localization/easy_localization.dart';
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
@@ -60,7 +62,7 @@ class CarProvider extends ChangeNotifier {
       'To Be Prepared': 0,
       'To Be Transferred': 0
     };
-    
+
     SQL.sql.addCar(Car.fromMap(map));
   }
 
@@ -85,13 +87,17 @@ class CarProvider extends ChangeNotifier {
   logIn() {
     String email = emailController.text;
     String password = passwordController.text;
+    log(email);
+    log(password);
     int auth = 0;
     for (var element in usersList) {
+      log(element.Email);
+      log(element.password);
       if (email == element.Email) {
         if (password == element.password) {
-          auth = 1;
-          break;
+          return 1;
         }
+        return 2;
       }
     }
     return auth;
