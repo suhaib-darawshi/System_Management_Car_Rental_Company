@@ -3,7 +3,10 @@ import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:provider/provider.dart';
 import 'package:rental_management_app/UI/Screens/ServiceScreens/CarDetails.dart';
+import 'package:rental_management_app/UI/Screens/ServiceScreens/DailyStock.dart';
+import 'package:rental_management_app/UI/Screens/ServiceScreens/TransferredCarList.dart';
 import 'package:rental_management_app/UI/Screens/login_screen.dart';
+import 'package:rental_management_app/UI/Screens/updateCar.dart';
 import 'package:rental_management_app/UI/Widgets/CarWidget.dart';
 import 'package:rental_management_app/data/dummy.dart';
 import 'package:rental_management_app/data/sqlhelper.dart';
@@ -51,7 +54,18 @@ class Material extends StatelessWidget {
           supportedLocales: context.supportedLocales,
           locale: context.locale,
           debugShowCheckedModeBanner: false,
-          home: HomePage(),
+          routes: {
+            'Login':(context) => LoginScreen(),
+            'Home':(context) => HomePage(),
+            'Add Car':(context) => AddCarPage(),
+            'Update':(context) => UpdateCar(),
+            'Daily Tasks':(context) => DailyTasks(),
+            'DailY Stock':(context) => DailyStock(),
+            'Details':(context) => CarDetails(),
+            'Damaged':(context) => DamagedScreen(),
+            'Transferred':(context) => TransferredScreen()
+          },
+          home: LoginScreen(),
         );
       },
     );

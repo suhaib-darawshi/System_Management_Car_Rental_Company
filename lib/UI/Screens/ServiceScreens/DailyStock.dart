@@ -24,6 +24,7 @@ class DailyStock extends StatelessWidget {
                   },
                   icon: Icon(Icons.language))
             ],
+            title: Center(child: Text("Daily Stock".tr(),style: TextStyle(color: Colors.black),)),
             leading: IconButton(
               icon: Icon(
                 Icons.arrow_back_ios,
@@ -35,27 +36,7 @@ class DailyStock extends StatelessWidget {
             ),
             backgroundColor: Colors.white,
           ),
-          body: Column(
-            mainAxisAlignment: MainAxisAlignment.center,
-            children: [
-              Container(
-                width: double.infinity,
-                height: 30.h,
-                child: Padding(
-                  padding: const EdgeInsets.symmetric(horizontal:8.0),
-                  child: Row(
-                    mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                    children: [
-                      Text("Free".tr()+provider.carInPlace.length.toString()),
-                      Text("Total".tr()+provider.carList.length.toString()),
-                      Text("Usage".tr()+(provider.carInRental.length/provider.carList.length).toString())
-                    ],
-                  ),
-                ),
-              ),
-              AllCars()
-            ],
-          ),
+          body: AllCars(),
         );
       }
     );

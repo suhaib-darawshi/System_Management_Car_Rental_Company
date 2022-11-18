@@ -8,17 +8,12 @@ import '../../providers/provider.dart';
 class CarOut extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
-    return Expanded(
-      child: SingleChildScrollView(
-        scrollDirection: Axis.vertical,
-        child: ListView.builder(
-              itemCount: Provider.of<CarProvider>(context).carInRental.length,
-              itemBuilder: (context, index) {
-                return CarWidget(Provider.of<CarProvider>(context).carInRental[index]);
-              },
-            ),
-      ),
-    );
+    return ListView.builder(
+          itemCount: Provider.of<CarProvider>(context).carInRental.length,
+          itemBuilder: (context, index) {
+            return CarWidget(Provider.of<CarProvider>(context).carInRental[index]);
+          },
+        );
      
   }
 }

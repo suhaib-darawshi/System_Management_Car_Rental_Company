@@ -56,10 +56,7 @@ class HomePage extends StatelessWidget {
                           padding: EdgeInsets.only(left: 20.w),
                           child: Text("Daily Tasks".tr())),
                       onTap: () {
-                        Navigator.of(context)
-                            .push(MaterialPageRoute(builder: (context) {
-                          return DailyTasks();
-                        }));
+                        Navigator.of(context).pushNamed('Daily Tasks');
                       },
                     ),
                     const Divider(
@@ -70,10 +67,7 @@ class HomePage extends StatelessWidget {
                           padding: EdgeInsets.only(left: 20.w),
                           child: Text("Daily Stock".tr())),
                       onTap: () {
-                        Navigator.of(context)
-                            .push(MaterialPageRoute(builder: (context) {
-                          return DailyStock();
-                        }));
+                        Navigator.of(context).pushNamed('DailY Stock');
                       },
                     ),
                     const Divider(
@@ -98,10 +92,7 @@ class HomePage extends StatelessWidget {
                           padding: EdgeInsets.only(left: 20.w),
                           child: Text("To Be Prepared".tr())),
                       onTap: () {
-                        Navigator.of(context)
-                            .push(MaterialPageRoute(builder: (context) {
-                          return DamagedScreen();
-                        }));
+                        Navigator.of(context).pushNamed('Damaged');
                       },
                     ),
                     const Divider(
@@ -112,10 +103,7 @@ class HomePage extends StatelessWidget {
                           padding: EdgeInsets.only(left: 20.w),
                           child: Text("To Be Transferred".tr())),
                       onTap: () {
-                        Navigator.of(context)
-                            .push(MaterialPageRoute(builder: ((context) {
-                          return TransferredScreen();
-                        })));
+                        Navigator.of(context).pushNamed('Transferred');
                       },
                     ),
                     const Divider(
@@ -170,9 +158,7 @@ class HomePage extends StatelessWidget {
         floatingActionButton: FloatingActionButton(
           onPressed: () {
             Provider.of<CarProvider>(context, listen: false).clearTexts();
-            Navigator.of(context).push(MaterialPageRoute(builder: (context) {
-              return AddCarPage();
-            }));
+            Navigator.of(context).pushNamed('Add Car');
           },
           tooltip: 'Increment',
           child: const Icon(Icons.add),

@@ -65,15 +65,10 @@ class CarWidgetForUpdate extends StatelessWidget {
               ),
               trailing: Icon(Icons.arrow_forward_ios),
               onTap: () {
-                Navigator.of(context).push(MaterialPageRoute(
-                  builder: (context) {
-                    Provider.of<CarProvider>(context, listen: false)
+                Provider.of<CarProvider>(context, listen: false)
                         .setCurrent(car);
-                        Provider.of<CarProvider>(context, listen: false).loadValues();
-                    log(car.carIn);
-                    return UpdateCar();
-                  },
-                ));
+                Navigator.of(context).pushNamed('Update');
+               
               },
             ),
           ),

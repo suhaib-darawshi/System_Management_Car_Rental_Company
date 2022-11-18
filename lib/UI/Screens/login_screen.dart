@@ -14,14 +14,17 @@ class LoginScreen extends StatelessWidget {
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
-        actions: [IconButton(onPressed: (() {
-          if(context.locale==Locale('en')){
-            context.setLocale(Locale('ar'));
-          }
-          else{
-            context.setLocale(Locale('en'));
-          }
-        }), icon: Icon(Icons.language))],
+        actions: [
+          IconButton(
+              onPressed: (() {
+                if (context.locale == Locale('en')) {
+                  context.setLocale(Locale('ar'));
+                } else {
+                  context.setLocale(Locale('en'));
+                }
+              }),
+              icon: Icon(Icons.language))
+        ],
         backgroundColor: Colors.white,
         elevation: 0,
       ),
@@ -59,6 +62,7 @@ class LoginScreen extends StatelessWidget {
                     Padding(
                       padding: const EdgeInsets.all(8.0),
                       child: TextFormField(
+                        obscureText: true,
                         decoration: InputDecoration(
                           icon: Icon(
                             Icons.lock_open,
@@ -72,21 +76,16 @@ class LoginScreen extends StatelessWidget {
                     ElevatedButton(
                         onPressed: () {
                           int t = provider.logIn();
-                          if(t==1){
-                            Navigator.of(context).push(MaterialPageRoute(builder: ((context) {
-                              return HomePage();
-                            })));
-                          }
-                          else{
+                          if (t == 1) {
+                            Navigator.of(context).pushNamed('Home');
+                          } else {
                             showDialog(
-                            context: context,
-                            builder: (context) {
-                              return AlertD();
-                            },
-                          );
-
+                              context: context,
+                              builder: (context) {
+                                return AlertD();
+                              },
+                            );
                           }
-                          
                         },
                         child: Text("Sign in".tr()))
                   ],
