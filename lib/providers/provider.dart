@@ -36,6 +36,7 @@ class CarProvider extends ChangeNotifier {
   List<Car> fixedCars = [];
   List<Car> carInPlace = [];
   List<Car> carInRental = [];
+  
 
   CarProvider() {
     getCars();
@@ -82,19 +83,50 @@ class CarProvider extends ChangeNotifier {
     };
 
     await SQL.sql.addCar(Car.fromMap(map));
+    getCars();
+    notifyListeners();
   }
-  
+
+  prepared() {
+    carPrepared = !carPrepared;
+    notifyListeners();
+  }
+
+  transferred() {
+    carTransferred = !carTransferred;
+    notifyListeners();
+  }
+
+  clearTexts() {
+    carBrancdController.clear();
+    carBranchController.clear();
+    carCategoryController.clear();
+    carDamagesController.clear();
+    carFuelController.clear();
+    carKilometersController.clear();
+    carLicenceController.clear();
+    carLocationController.clear();
+    carModelController.clear();
+    carNameController.clear();
+    carVINController.clear();
+    carParkingController.clear();
+    carStatusController.clear();
+    carTyresController.clear();
+  }
+
   getUsers() async {
     usersList = await SQL.sql.getUsers();
-    carInPlace = carList.where((element) => element.carIn == "Car In").toList();
-    carInRental = carList.where((element) => element.carIn != "Car In").toList();
-    brokenCars = carList.where((element) => element.toBePrepared == 1).toList();
-    fixedCars = carList.where((element) => element.toBePrepared == 1).toList();
+
     log(usersList.length.toString());
   }
 
   getCars() async {
     carList = await SQL.sql.getAllCars();
+    carInPlace = carList.where((element) => element.carIn == "Car In").toList();
+    carInRental =
+        carList.where((element) => element.carIn != "Car In").toList();
+    brokenCars = carList.where((element) => element.toBePrepared == 1).toList();
+    fixedCars = carList.where((element) => element.toBePrepared == 0).toList();
     notifyListeners();
   }
 
@@ -172,14 +204,17 @@ class CarProvider extends ChangeNotifier {
     return CAR;
   }
 
-  contract() {
+  contract() async {
     if (CAR.carIn == "Car In") {
       CAR.carIn = "Car Out";
+      CAR.status = "Contract In";
     } else {
       CAR.carIn = "Car In";
+      CAR.status = "Contract Out";
     }
 
-    SQL.sql.updateCar(CAR);
+    await SQL.sql.updateCar(CAR);
+    getCars();
     notifyListeners();
   }
 

@@ -12,6 +12,7 @@ import 'package:rental_management_app/providers/provider.dart';
 import 'UI/Screens/AddCarPage.dart';
 import 'UI/Screens/HomePage.dart';
 import 'UI/Screens/ServiceScreens/DailyTasks.dart';
+import 'UI/Screens/ServiceScreens/DamagedListScreen.dart';
 
 void main() async {
   WidgetsFlutterBinding.ensureInitialized();

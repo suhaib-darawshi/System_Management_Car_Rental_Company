@@ -1,24 +1,24 @@
 import 'package:flutter/cupertino.dart';
 import 'package:provider/provider.dart';
-import 'package:rental_management_app/UI/Widgets/CarWidget.dart';
 
 import '../../providers/provider.dart';
 import 'ViewCarWidget.dart';
 
-class FixedCars extends StatelessWidget {
+class TransferredCarsList extends StatelessWidget {
+  
+
   @override
   Widget build(BuildContext context) {
     return Expanded(
       child: SingleChildScrollView(
         scrollDirection: Axis.vertical,
         child: ListView.builder(
-              itemCount: Provider.of<CarProvider>(context).fixedCars.length,
+              itemCount: Provider.of<CarProvider>(context).carInPlace.length,
               itemBuilder: (context, index) {
-                return CarWidgetForUpdate(Provider.of<CarProvider>(context).fixedCars[index]);
+                return CarWidgetForUpdate(Provider.of<CarProvider>(context).carInPlace[index]);
               },
             ),
       ),
     );
-     
   }
 }

@@ -12,11 +12,20 @@ class AddCarPage extends StatelessWidget {
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
+        actions: [IconButton(onPressed: (() {
+          if(context.locale==Locale('en')){
+            context.setLocale(Locale('ar'));
+          }
+          else{
+            context.setLocale(Locale('en'));
+          }
+        }), icon: Icon(Icons.language))],
         backgroundColor: Colors.white,
         leading: IconButton(
           icon: Icon(Icons.arrow_back_ios, color: Colors.blue),
           onPressed: () => Navigator.of(context).pop(),
         ),
+        title: Text("Add Car Page".tr(),style: TextStyle(color: Colors.black,fontWeight: FontWeight.bold),),
       ),
       body: Consumer<CarProvider>(
         builder: (context, value, child) {

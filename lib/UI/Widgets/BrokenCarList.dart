@@ -8,12 +8,17 @@ import 'ViewCarWidget.dart';
 class BrokenCars extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
-    return  ListView.builder(
-          itemCount: Provider.of<CarProvider>(context).brokenCars.length,
-          itemBuilder: (context, index) {
-            return CarWidgetForUpdate(Provider.of<CarProvider>(context).brokenCars[index]);
-          },
-        );
+    return  Expanded(
+      child: SingleChildScrollView(
+        scrollDirection: Axis.vertical,
+        child: ListView.builder(
+              itemCount: Provider.of<CarProvider>(context).brokenCars.length,
+              itemBuilder: (context, index) {
+                return CarWidgetForUpdate(Provider.of<CarProvider>(context).brokenCars[index]);
+              },
+            ),
+      ),
+    );
      
   }
 }

@@ -3,148 +3,180 @@ import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:provider/provider.dart';
+import 'package:rental_management_app/UI/Screens/ServiceScreens/DailyStock.dart';
 import 'package:rental_management_app/UI/Screens/ServiceScreens/DailyTasks.dart';
+import 'package:rental_management_app/UI/Screens/ServiceScreens/DamagedListScreen.dart';
+import 'package:rental_management_app/UI/Screens/ServiceScreens/TransferredCarList.dart';
 import 'package:rental_management_app/UI/Widgets/AllCarLists.dart';
 import 'package:rental_management_app/UI/Widgets/BrokenCarList.dart';
 import 'package:rental_management_app/UI/Widgets/FixedCars.dart';
+import 'package:rental_management_app/data/dummy.dart';
 import 'package:rental_management_app/providers/provider.dart';
 
 import 'AddCarPage.dart';
 
-class HomePage extends StatefulWidget {
-  @override
-  State<HomePage> createState() => _HomePageState();
-}
-
-class _HomePageState extends State<HomePage> with TickerProviderStateMixin {
-  late TabController tabController;
-
-  @override
-  void initState() {
-    super.initState();
-    tabController = new TabController(length: 3, vsync: this);
-  }
-
+class HomePage extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
-    return Scaffold(
-      
-      drawer: Drawer(
-        child: Column(
-          crossAxisAlignment: CrossAxisAlignment.start,
-          children: [
-            Padding(
-              padding: EdgeInsets.only(
-                  left: 8.w,
-                  top: 40.h,
-                  right: MediaQuery.of(context).size.width / 3),
-              child: Image.asset(
-                'assets/images/logo.PNG',
-                width: 180.w,
-                height: 180.h,
+    return DefaultTabController(
+      length: 3,
+      child: Scaffold(
+        drawer: Drawer(
+          child: Column(
+            crossAxisAlignment: CrossAxisAlignment.start,
+            children: [
+              Padding(
+                padding: EdgeInsets.only(
+                    left: 8.w,
+                    top: 40.h,
+                    right: MediaQuery.of(context).size.width / 3),
+                child: Image.asset(
+                  'assets/images/logo.PNG',
+                  width: 180.w,
+                  height: 180.h,
+                ),
               ),
-            ),
-            Padding(
-              padding: EdgeInsets.only(left: 8.w),
-              child: Column(
-                crossAxisAlignment: CrossAxisAlignment.start,
-                children: [
-                  const Divider(
-                    color: Colors.black,
-                  ),
-                  InkWell(
+              Padding(
+                padding: EdgeInsets.only(left: 8.w),
+                child: Column(
+                  crossAxisAlignment: CrossAxisAlignment.start,
+                  children: [
+                    const Divider(
+                      color: Colors.black,
+                    ),
+                    InkWell(
+                        child: Padding(
+                            padding: EdgeInsets.only(left: 20.w),
+                            child: Text("My Tasks".tr()))),
+                    const Divider(
+                      color: Colors.black,
+                    ),
+                    InkWell(
                       child: Padding(
                           padding: EdgeInsets.only(left: 20.w),
-                          child: Text("My Tasks".tr()))),
-                  const Divider(
-                    color: Colors.black,
-                  ),
-                  InkWell(
-                    child: Padding(
-                        padding: EdgeInsets.only(left: 20.w),
-                        child: Text("Daily Tasks".tr())),
-                    onTap: () {
-                      Navigator.of(context)
-                          .push(MaterialPageRoute(builder: (context) {
-                        return DailyTasks();
-                      }));
-                    },
-                  ),
-                  const Divider(
-                    color: Colors.black,
-                  ),
-                  InkWell(
+                          child: Text("Daily Tasks".tr())),
+                      onTap: () {
+                        Navigator.of(context)
+                            .push(MaterialPageRoute(builder: (context) {
+                          return DailyTasks();
+                        }));
+                      },
+                    ),
+                    const Divider(
+                      color: Colors.black,
+                    ),
+                    InkWell(
                       child: Padding(
                           padding: EdgeInsets.only(left: 20.w),
-                          child: Text("Daily Stock".tr()))),
-                  const Divider(
-                    color: Colors.black,
-                  ),
-                  InkWell(
+                          child: Text("Daily Stock".tr())),
+                      onTap: () {
+                        Navigator.of(context)
+                            .push(MaterialPageRoute(builder: (context) {
+                          return DailyStock();
+                        }));
+                      },
+                    ),
+                    const Divider(
+                      color: Colors.black,
+                    ),
+                    InkWell(
+                        child: Padding(
+                            padding: EdgeInsets.only(left: 20.w),
+                            child: Text("Scan Code".tr()))),
+                    const Divider(
+                      color: Colors.black,
+                    ),
+                    InkWell(
+                        child: Padding(
+                            padding: EdgeInsets.only(left: 20.w),
+                            child: Text("Search Car".tr()))),
+                    const Divider(
+                      color: Colors.black,
+                    ),
+                    InkWell(
                       child: Padding(
                           padding: EdgeInsets.only(left: 20.w),
-                          child: Text("Scan Code".tr()))),
-                  const Divider(
-                    color: Colors.black,
-                  ),
-                  InkWell(
+                          child: Text("To Be Prepared".tr())),
+                      onTap: () {
+                        Navigator.of(context)
+                            .push(MaterialPageRoute(builder: (context) {
+                          return DamagedScreen();
+                        }));
+                      },
+                    ),
+                    const Divider(
+                      color: Colors.black,
+                    ),
+                    InkWell(
                       child: Padding(
                           padding: EdgeInsets.only(left: 20.w),
-                          child: Text("Search Car".tr()))),
-                  const Divider(
-                    color: Colors.black,
-                  ),
-                  InkWell(
+                          child: Text("To Be Transferred".tr())),
+                      onTap: () {
+                        Navigator.of(context)
+                            .push(MaterialPageRoute(builder: ((context) {
+                          return TransferredScreen();
+                        })));
+                      },
+                    ),
+                    const Divider(
+                      color: Colors.black,
+                    ),
+                    InkWell(
                       child: Padding(
                           padding: EdgeInsets.only(left: 20.w),
-                          child: Text("To Be Prepared".tr()))),
-                  const Divider(
-                    color: Colors.black,
-                  ),
-                  InkWell(
-                      child: Padding(
-                          padding: EdgeInsets.only(left: 20.w),
-                          child: Text("To Be Transferred".tr()))),
-                  const Divider(
-                    color: Colors.black,
-                  ),
-                  InkWell(
-                      child: Padding(
-                          padding: EdgeInsets.only(left: 20.w),
-                          child: Text("Log Out".tr()))),
-                  const Divider(
-                    color: Colors.black,
-                  ),
-                ],
+                          child: Text("Log Out".tr())),
+                      onTap: (() {
+                        Navigator.of(context).pop();
+                      }),
+                    ),
+                    const Divider(
+                      color: Colors.black,
+                    ),
+                  ],
+                ),
               ),
-            ),
+            ],
+          ),
+        ),
+        appBar: AppBar(
+          actions: [
+            IconButton(
+                onPressed: (() {
+                  if (context.locale == Locale('en')) {
+                    context.setLocale(Locale('ar'));
+                  } else {
+                    context.setLocale(Locale('en'));
+                  }
+                }),
+                icon: Icon(Icons.language))
           ],
+          backgroundColor: Colors.white,
+          title: Center(
+            child: Text(
+              'Home Page'.tr(),
+              style: TextStyle(color: Colors.black),
+            ),
+          ),
+          iconTheme: IconThemeData(color: Colors.black),
+          bottom: TabBar(tabs: [
+            Text('All Cars'.tr(), style: TextStyle(color: Colors.black)),
+            Text('Broken cars'.tr(), style: TextStyle(color: Colors.black)),
+            Text('Fixed Cars'.tr(), style: TextStyle(color: Colors.black))
+          ]),
         ),
-      ),
-      appBar: AppBar(
-        backgroundColor: Colors.white,
-        title: Center(
-          child: Text('Home Page'.tr(),style: TextStyle(color: Colors.black),),
+        body: TabBarView(
+          children: [AllCars(), BrokenCars(), FixedCars()],
         ),
-        iconTheme: IconThemeData(color: Colors.black),
-        bottom: TabBar(controller: tabController, tabs: [
-          Text('All Cars'.tr(),style: TextStyle(color: Colors.black)),
-          Text('Broken cars'.tr(),style: TextStyle(color: Colors.black)),
-          Text('Fixed Cars'.tr(),style: TextStyle(color: Colors.black))
-        ]),
-      ),
-      body: TabBarView(
-        controller: tabController,
-        children: [AllCars(), BrokenCars(), FixedCars()],
-      ),
-      floatingActionButton: FloatingActionButton(
-        onPressed: () {
-          Navigator.of(context).push(MaterialPageRoute(builder: (context) {
-            return AddCarPage();
-          }));
-        },
-        tooltip: 'Increment',
-        child: const Icon(Icons.add),
+        floatingActionButton: FloatingActionButton(
+          onPressed: () {
+            Provider.of<CarProvider>(context, listen: false).clearTexts();
+            Navigator.of(context).push(MaterialPageRoute(builder: (context) {
+              return AddCarPage();
+            }));
+          },
+          tooltip: 'Increment',
+          child: const Icon(Icons.add),
+        ),
       ),
     );
   }

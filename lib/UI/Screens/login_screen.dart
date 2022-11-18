@@ -13,6 +13,18 @@ class LoginScreen extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
+      appBar: AppBar(
+        actions: [IconButton(onPressed: (() {
+          if(context.locale==Locale('en')){
+            context.setLocale(Locale('ar'));
+          }
+          else{
+            context.setLocale(Locale('en'));
+          }
+        }), icon: Icon(Icons.language))],
+        backgroundColor: Colors.white,
+        elevation: 0,
+      ),
       body: Consumer<CarProvider>(
         builder: (context, provider, child) {
           return Center(

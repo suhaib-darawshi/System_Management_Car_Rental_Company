@@ -34,7 +34,14 @@
     "Update Car":"Update Car",
     "Damages":"Damages",
     "Status":"Status",
-    "Update":"Update"
+    "Update":"Update",
+    "OUT":"OUT",
+    "IN":"IN",
+    "Add Car Page":"Add Car Page",
+    "Damaged Cars":"Damaged Cars",
+    "Free":"Free",
+    "Total":"Total",
+    "Usage":"Usage"
     
     
 }

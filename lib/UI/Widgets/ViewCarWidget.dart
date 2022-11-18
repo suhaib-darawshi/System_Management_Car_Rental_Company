@@ -57,7 +57,7 @@ class CarWidgetForUpdate extends StatelessWidget {
           ),
           Container(
             width: MediaQuery.of(context).size.width * 6 / 7.0,
-            color: Colors.amber,
+            color:(car.damages=="No damages"||car.carIn=="Car Out")? Colors.amber:Colors.red,
             child: ListTile(
               title: Text(
                 'Category:$category\nLicence Place: $Licence\nCar Location: $location\nStatus: $status\nBranch:$branch\n$carin ,Service',
