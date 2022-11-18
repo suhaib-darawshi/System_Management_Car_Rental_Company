@@ -17,7 +17,8 @@ class DailyTasks extends StatelessWidget {
               icon: Icon(Icons.arrow_back_ios, color: Colors.blue),
               onPressed: () => Navigator.of(context).pop(),
             ),
-
+            
+          
           ),
         );
       },

@@ -1,15 +1,15 @@
 class Car {
   late int id;
-  late String carName;//
+  late String carName; //
   late String status;
-  late String brand;//
-  late String model;//
-  late String licence;//
-  late String VIN;//
-  late String category;//
-  late String branch;//
-  late int kilometers;//
-  late String fuelStatus;//
+  late String brand; //
+  late String model; //
+  late String licence; //
+  late String VIN; //
+  late String category; //
+  late String branch; //
+  late int kilometers; //
+  late String fuelStatus; //
   late String tyres;
   late String barkingBox;
   late String damages;
@@ -34,6 +34,7 @@ final String carNameColumnName = 'Car Name';
   final String carLocationColumnName = 'Car Location';
 */
   Car.fromMap(Map<String, dynamic> map) {
+    this.id = map['id'];
     this.carName = map['Car_Name'];
     this.status = map['Status'];
     this.brand = map['Brand'];
@@ -49,11 +50,12 @@ final String carNameColumnName = 'Car Name';
     this.carIn = map['Car_In'];
     this.carLocation = map['Car_Location'];
     this.model = map['Model'];
-    this.toBePrepared = map['To_Be_Prepared']??0;
-    this.toBeTransferred = map['To_Be_Transferred']??0;
+    this.toBePrepared = map['To_Be_Prepared'] ?? 0;
+    this.toBeTransferred = map['To_Be_Transferred'] ?? 0;
   }
   Map<String, dynamic> toMap() {
     return {
+      'id': this.id,
       'Car_Name': this.carName,
       'Status': this.status,
       'Brand': this.brand,
@@ -70,7 +72,7 @@ final String carNameColumnName = 'Car Name';
       'Car_In': this.carIn,
       'Car_Location': this.carLocation,
       'To_Be_Prepared': this.toBePrepared,
-      'To_Be_Transferred':this.toBeTransferred
+      'To_Be_Transferred': this.toBeTransferred
     };
   }
 }

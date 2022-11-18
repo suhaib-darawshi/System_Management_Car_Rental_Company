@@ -30,6 +30,10 @@
     "Location":"الموقع",
     "Add Car":"أضف",
     "Wrong Information":"البيانات التي قمت بادخالها خاطئة",
-    "Please Try Again":"حاول مرة اخرى"
+    "Please Try Again":"حاول مرة اخرى",
+    "Update Car":"تحديث البيانات",
+    "Damages":"اعطال",
+    "Status":"حالة التشغيل",
+    "Update":"تحديث البيانات"
     
 }

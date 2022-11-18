@@ -5,11 +5,12 @@ import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:provider/provider.dart';
 import 'package:rental_management_app/UI/Screens/ServiceScreens/CarDetails.dart';
+import 'package:rental_management_app/UI/Screens/updateCar.dart';
 import 'package:rental_management_app/providers/provider.dart';
 
 import '../../models/car.dart';
 
-class CarWidget extends StatelessWidget {
+class CarWidgetForUpdate extends StatelessWidget {
   late Car car;
   late String category;
   late String Licence;
@@ -17,7 +18,7 @@ class CarWidget extends StatelessWidget {
   late String status;
   late String branch;
   late String carin;
-  CarWidget(this.car) {
+  CarWidgetForUpdate(this.car) {
     category = car.category;
     Licence = car.licence;
     location = car.carLocation;
@@ -68,8 +69,9 @@ class CarWidget extends StatelessWidget {
                   builder: (context) {
                     Provider.of<CarProvider>(context, listen: false)
                         .setCurrent(car);
+                        Provider.of<CarProvider>(context, listen: false).loadValues();
                     log(car.carIn);
-                    return CarDetails();
+                    return UpdateCar();
                   },
                 ));
               },

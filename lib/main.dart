@@ -9,6 +9,7 @@ import 'package:rental_management_app/data/dummy.dart';
 import 'package:rental_management_app/data/sqlhelper.dart';
 import 'package:rental_management_app/models/car.dart';
 import 'package:rental_management_app/providers/provider.dart';
+import 'UI/Screens/AddCarPage.dart';
 import 'UI/Screens/HomePage.dart';
 import 'UI/Screens/ServiceScreens/DailyTasks.dart';
 
@@ -27,7 +28,7 @@ class App extends StatelessWidget {
       path: 'assets/languages',
       fallbackLocale: Locale('en'),
       child: ChangeNotifierProvider<CarProvider>(
-        create: (context) {
+        create: (context)  {
           return CarProvider();
         },
         child: Material(),
@@ -49,7 +50,7 @@ class Material extends StatelessWidget {
           supportedLocales: context.supportedLocales,
           locale: context.locale,
           debugShowCheckedModeBanner: false,
-          home: LoginScreen(),
+          home: HomePage(),
         );
       },
     );

@@ -30,7 +30,11 @@
     "Location":"Location",
     "Add Car":"Add Car",
     "Wrong Information":"Wrong Information",
-    "Please Try Again":"Please Try Again"
+    "Please Try Again":"Please Try Again",
+    "Update Car":"Update Car",
+    "Damages":"Damages",
+    "Status":"Status",
+    "Update":"Update"
     
     
 }

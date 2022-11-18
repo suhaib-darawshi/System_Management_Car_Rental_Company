@@ -118,7 +118,7 @@ class SQL {
     return ob.map((e) => User.fromMap(e)).toList();
   }
 
-  addUser(User u) async{
+  addUser(User u) async {
     await dataBase.insert(usersTableName, u.toMap());
     log('user added');
   }
@@ -128,14 +128,10 @@ class SQL {
   }
 
   updateCar(Car c) {
+    
     dataBase.update(
         carTableName,
-        {
-          carCarInColumnName: c.carIn,
-          carToBePreparedColumnName: c.toBePrepared,
-          carToBeTransferredColumnName: c.toBeTransferred,
-          carDamagesColumnName: c.damages
-        },
+        c.toMap(),
         where: 'id=?',
         whereArgs: [c.id]);
   }
