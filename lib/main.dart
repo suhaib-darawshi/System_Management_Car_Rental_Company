@@ -16,6 +16,7 @@ import 'UI/Screens/AddCarPage.dart';
 import 'UI/Screens/HomePage.dart';
 import 'UI/Screens/ServiceScreens/DailyTasks.dart';
 import 'UI/Screens/ServiceScreens/DamagedListScreen.dart';
+import 'UI/Screens/ServiceScreens/SearchScreen.dart';
 
 void main() async {
   WidgetsFlutterBinding.ensureInitialized();
@@ -63,9 +64,10 @@ class Material extends StatelessWidget {
             'DailY Stock':(context) => DailyStock(),
             'Details':(context) => CarDetails(),
             'Damaged':(context) => DamagedScreen(),
-            'Transferred':(context) => TransferredScreen()
+            'Transferred':(context) => TransferredScreen(),
+            'SearchCar':(context) => SearchCar()
           },
-          home: LoginScreen(),
+          home: HomePage(),
         );
       },
     );

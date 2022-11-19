@@ -77,7 +77,7 @@ class LoginScreen extends StatelessWidget {
                         onPressed: () {
                           int t = provider.logIn();
                           if (t == 1) {
-                            Navigator.of(context).pushNamed('Home');
+                            Navigator.of(context).pushReplacementNamed('Home');
                           } else {
                             showDialog(
                               context: context,

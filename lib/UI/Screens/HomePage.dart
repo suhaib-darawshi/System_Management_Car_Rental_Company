@@ -81,9 +81,13 @@ class HomePage extends StatelessWidget {
                       color: Colors.black,
                     ),
                     InkWell(
-                        child: Padding(
-                            padding: EdgeInsets.only(left: 20.w),
-                            child: Text("Search Car".tr()))),
+                      child: Padding(
+                          padding: EdgeInsets.only(left: 20.w),
+                          child: Text("Search Car".tr())),
+                      onTap: () {
+                        Navigator.of(context).pushNamed('SearchCar');
+                      },
+                    ),
                     const Divider(
                       color: Colors.black,
                     ),
@@ -114,7 +118,7 @@ class HomePage extends StatelessWidget {
                           padding: EdgeInsets.only(left: 20.w),
                           child: Text("Log Out".tr())),
                       onTap: (() {
-                        Navigator.of(context).pop();
+                        Navigator.of(context).pushReplacementNamed('Login');
                       }),
                     ),
                     const Divider(

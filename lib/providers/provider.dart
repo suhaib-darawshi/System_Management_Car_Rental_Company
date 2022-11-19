@@ -36,7 +36,6 @@ class CarProvider extends ChangeNotifier {
   List<Car> fixedCars = [];
   List<Car> carInPlace = [];
   List<Car> carInRental = [];
-  
 
   CarProvider() {
     getCars();
@@ -202,6 +201,17 @@ class CarProvider extends ChangeNotifier {
 
   getCurrent() {
     return CAR;
+  }
+
+  List<Car> cars = [];
+  clearSearchList() {
+    cars = [];
+  }
+
+  searchCar() {
+    String name = carNameController.text;
+    cars = carList.where((element) => element.carName == name).toList();
+    notifyListeners();
   }
 
   contract() async {

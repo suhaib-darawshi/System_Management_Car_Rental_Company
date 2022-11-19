@@ -36,7 +36,29 @@ class DailyStock extends StatelessWidget {
             ),
             backgroundColor: Colors.white,
           ),
-          body: AllCars(),
+          body: Column(
+            children: [
+              Container(
+                height: 50.h,
+                child: Padding(
+                  padding: const EdgeInsets.all(10.0),
+                  child: Row(
+                    mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                    children:[
+                    Text("Free".tr()+" : "+provider.carInPlace.length.toString(),style: TextStyle(fontWeight: FontWeight.bold,fontSize: 20.h),),
+                    Text("Total".tr()+" : "+provider.carList.length.toString(),style: TextStyle(fontWeight: FontWeight.bold,fontSize: 20.h)),
+                    Text("Usage".tr()+" : "+(provider.carInRental.length*100/provider.carList.length).toString()+' %',style: TextStyle(fontWeight: FontWeight.bold,fontSize: 20.h))
+
+                    ]
+                  ),
+                ),
+              )
+              ,
+              Expanded(
+                child: AllCars()
+                ),
+            ],
+          ),
         );
       }
     );
