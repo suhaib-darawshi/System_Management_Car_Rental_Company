@@ -28,6 +28,8 @@ class CarWidgetForUpdate extends StatelessWidget {
   }
   @override
   Widget build(BuildContext context) {
+    Provider.of<CarProvider>(context).setCurrent(this.car);
+    
     return Container(
       height: 150.h,
       width: double.infinity,
@@ -57,7 +59,9 @@ class CarWidgetForUpdate extends StatelessWidget {
           ),
           Container(
             width: MediaQuery.of(context).size.width * 6 / 7.0,
-            color:(car.damages=="No damages"||car.carIn=="Car Out")? Colors.amber:Colors.red,
+            color: (car.damages == "No damages" || car.carIn == "Car Out")
+                ? Colors.amber
+                : Colors.red,
             child: ListTile(
               title: Text(
                 'Category:$category\nLicence Place: $Licence\nCar Location: $location\nStatus: $status\nBranch:$branch\n$carin ,Service',
@@ -66,9 +70,8 @@ class CarWidgetForUpdate extends StatelessWidget {
               trailing: Icon(Icons.arrow_forward_ios),
               onTap: () {
                 Provider.of<CarProvider>(context, listen: false)
-                        .setCurrent(car);
+                    .setCurrent(car);
                 Navigator.of(context).pushNamed('Update');
-               
               },
             ),
           ),

@@ -34,7 +34,7 @@ final String carNameColumnName = 'Car Name';
   final String carLocationColumnName = 'Car Location';
 */
   Car.fromMap(Map<String, dynamic> map) {
-    this.id = map['id'];
+    this.id = map['id']??0;
     this.carName = map['Car_Name'];
     this.status = map['Status'];
     this.brand = map['Brand'];
@@ -46,8 +46,8 @@ final String carNameColumnName = 'Car Name';
     this.fuelStatus = map['Fuel_Status'];
     this.tyres = map['Tyres'];
     this.barkingBox = map['Barking_Box'];
-    this.damages = map['Damages'];
-    this.carIn = map['Car_In'];
+    this.damages = map['Damages']??'No Damage';
+    this.carIn = map['Car_In']??'Car Out';
     this.carLocation = map['Car_Location'];
     this.model = map['Model'];
     this.toBePrepared = map['To_Be_Prepared'] ?? 0;

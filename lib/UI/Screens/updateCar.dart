@@ -10,6 +10,7 @@ import '../../providers/provider.dart';
 class UpdateCar extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
+    Provider.of<CarProvider>(context).loadValues();
     return Scaffold(
         appBar: AppBar(
           actions: [IconButton(onPressed: (() {

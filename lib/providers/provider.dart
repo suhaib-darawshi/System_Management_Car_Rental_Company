@@ -36,7 +36,7 @@ class CarProvider extends ChangeNotifier {
   List<Car> fixedCars = [];
   List<Car> carInPlace = [];
   List<Car> carInRental = [];
-
+  String? name;
   CarProvider() {
     getCars();
     getUsers();
@@ -121,11 +121,15 @@ class CarProvider extends ChangeNotifier {
 
   getCars() async {
     carList = await SQL.sql.getAllCars();
+    carList.map((e) {
+      log(e.carName);
+    });
     carInPlace = carList.where((element) => element.carIn == "Car In").toList();
     carInRental =
         carList.where((element) => element.carIn != "Car In").toList();
     brokenCars = carList.where((element) => element.toBePrepared == 1).toList();
     fixedCars = carList.where((element) => element.toBePrepared == 0).toList();
+    cars = carList.where((element) => element.carName == name).toList();
     notifyListeners();
   }
 
@@ -206,11 +210,15 @@ class CarProvider extends ChangeNotifier {
   List<Car> cars = [];
   clearSearchList() {
     cars = [];
+    clearTexts();
   }
 
   searchCar() {
-    String name = carNameController.text;
-    cars = carList.where((element) => element.carName == name).toList();
+    name = carNameController.text;
+
+    log(name ?? 'asd');
+    getCars();
+    log(cars.length.toString());
     notifyListeners();
   }
 
